@@ -11,32 +11,21 @@ class Round extends React.Component {
         }
     }
 
-    handleClickAdd = () => {
+    handleClickScoring = (e) => {
         let scores = [...this.state.scores]
         let holeIndex = this.state.holeIndex
         let currentScore = scores[holeIndex]
+        let isAdd = e.target.textContent === '+'
 
-        scores[holeIndex] = currentScore + 1
-
-        this.setState({
-            scores: scores
-        })     
-    }
-
-    handleClickSubtract = () => {
-        let scores = [...this.state.scores]
-        let holeIndex = this.state.holeIndex
-        let currentScore = scores[holeIndex]
-
-        if (currentScore < 1) {
-            return
+        if (isAdd) {
+            scores[holeIndex] = currentScore + 1
+        } else {
+            scores[holeIndex] = currentScore - 1
         }
         
-        scores[holeIndex] = currentScore - 1
-
         this.setState({
             scores: scores
-        })     
+        })   
     }
 
     handleClickPrev = () => {
@@ -68,8 +57,7 @@ class Round extends React.Component {
                 <ShotCounter 
                     currentHole={holeIndex + 1}
                     value={scores[holeIndex]}
-                    onClickSubtract={this.handleClickSubtract}
-                    onClickAdd={this.handleClickAdd}
+                    onClick={this.handleClickScoring}
                     onClickPrev={this.handleClickPrev}
                     onClickNext={this.handleClickNext}
                     />

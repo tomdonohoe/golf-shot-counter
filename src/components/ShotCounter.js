@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShotCounter = ({currentHole, value, onClickAdd, onClickSubtract, onClickPrev, onClickNext}) => {
+const ShotCounter = ({currentHole, value, onClick, onClickAdd, onClickSubtract, onClickPrev, onClickNext}) => {
 
     return (
         <div className="shotcounter">
@@ -10,10 +10,10 @@ const ShotCounter = ({currentHole, value, onClickAdd, onClickSubtract, onClickPr
             <h3>Hole {currentHole} Score</h3>
 
             <div className="counter">
-                <button onClick={onClickSubtract}>-</button>
+                <button onClick={onClick}>-</button>
                 <p className="score">{value}</p>
                 {/* <input type="number" value={value} onChange={(e) => onChange(e)}/> */}
-                <button onClick={onClickAdd}>+</button>
+                <button onClick={onClick}>+</button>
             </div>
 
             <div className="holenav">
