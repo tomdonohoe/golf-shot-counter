@@ -17,8 +17,12 @@ const ShotCounter = ({currentHole, value, onClick, onClickAdd, onClickSubtract, 
             </div>
 
             <div className="holenav">
-                <button onClick={onClickPrev}>previous hole</button>
-                <button className="next" onClick={onClickNext}>next hole</button>
+                <button onClick={onClickPrev}>
+                    <i className="arrow left"></i> prev
+                </button>
+                <button onClick={onClickNext}>
+                    next <i className="arrow right"></i>
+                </button>
             </div>
         </div>
     )

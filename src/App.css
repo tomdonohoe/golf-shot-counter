@@ -59,6 +59,33 @@ body {
   margin: 0;
 }
 
+.arrow {
+  border: solid #FFF;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
 @media (max-width: 900px) {
   .round {
     width: 100%;
@@ -72,8 +99,13 @@ body {
 }
 
 /*  Scorecard */
+.scorecardWrapper {
+  background: #FFF;
+  padding: 10px;
+}
 
 .scorecard {
   display: grid;
-  grid-template-columns: repeat(18, 1fr)
+  grid-template-columns: repeat(9, 1fr);
+  row-gap: 20px;
 }

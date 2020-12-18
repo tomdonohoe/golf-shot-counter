@@ -10,9 +10,11 @@ const Scorecard = ({ scores }) => {
 
     return (
         <div>
-            <h1>Scorecard</h1>
-            <div className="scorecard">
-                {holes}
+            <div className="scorecardWrapper">
+                <h1>Scorecard</h1>
+                <div className="scorecard">
+                    {holes}
+                </div>   
             </div>
         </div>
     )
