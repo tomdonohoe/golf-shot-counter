@@ -1,18 +1,19 @@
 import React from 'react'
+import ScorecardScore from './ScorecardScore.js'
 
 
-const Scorecard = (props) => {
+const Scorecard = ({ scores }) => {
 
-    const holes = props.scores.map( (score, index) => {
-        return <li key={index}>Hole {index + 1}: {score}</li>
+    const holes = scores.map( (score, index) => {
+        return <ScorecardScore holeNumber={index + 1} holeScore={score} />
     })
 
     return (
         <div>
             <h1>Scorecard</h1>
-            <ul>
+            <div className="scorecard">
                 {holes}
-            </ul>
+            </div>
         </div>
     )
 }

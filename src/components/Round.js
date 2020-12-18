@@ -11,16 +11,32 @@ class Round extends React.Component {
         }
     }
 
-    handleChange = (e) => {
-        const scores = [...this.state.scores]
-        const holeIndex = this.state.holeIndex
+    handleClickAdd = () => {
+        let scores = [...this.state.scores]
+        let holeIndex = this.state.holeIndex
+        let currentScore = scores[holeIndex]
 
-        scores[holeIndex] = e.target.value
+        scores[holeIndex] = currentScore + 1
 
         this.setState({
             scores: scores
-        })
-        console.log('change')
+        })     
+    }
+
+    handleClickSubtract = () => {
+        let scores = [...this.state.scores]
+        let holeIndex = this.state.holeIndex
+        let currentScore = scores[holeIndex]
+
+        if (currentScore < 1) {
+            return
+        }
+        
+        scores[holeIndex] = currentScore - 1
+
+        this.setState({
+            scores: scores
+        })     
     }
 
     handleClickPrev = () => {
@@ -37,6 +53,7 @@ class Round extends React.Component {
         if (this.state.holeIndex > 16) {
             return
         }
+
         this.setState({
             holeIndex: this.state.holeIndex + 1
         })
@@ -47,10 +64,12 @@ class Round extends React.Component {
 
         return (
             <div className="round">
+                {/* <Counter /> */}
                 <ShotCounter 
                     currentHole={holeIndex + 1}
                     value={scores[holeIndex]}
-                    onChange={this.handleChange}
+                    onClickSubtract={this.handleClickSubtract}
+                    onClickAdd={this.handleClickAdd}
                     onClickPrev={this.handleClickPrev}
                     onClickNext={this.handleClickNext}
                     />

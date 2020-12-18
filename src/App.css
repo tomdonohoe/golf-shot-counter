@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  background-color: lightgrey;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.round {
+  width: 80%;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* ShoutCounter */
+.shotcounter {
+  display: grid;
+  grid-template-rows: 1fr 1fr 3fr 1fr;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  width: 30%;
+  margin: 0 auto;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 10px;
+  background-color: #FFF;
 }
 
-.App-link {
-  color: #61dafb;
+.counter {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  min-height: 3rem;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.counter button {
+  font-size: 1.5rem;
+  background-color: #118AB2;
+  color: #FFF;
+  border: 2px solid #118AB2;
+  border-radius: 10px;
+}
+
+.holenav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.holenav button {
+  font-size: 1.2rem;
+  background-color: #118AB2;
+  color: #FFF;
+  border: 2px solid #118AB2;
+  border-radius: 10px;
+}
+
+.score {
+  font-size: 3rem;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .round {
+    width: 100%;
+    margin: 0 auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  .shotcounter {
+    width: 80%;
+    margin: 0 auto;
   }
+}
+
+/*  Scorecard */
+
+.scorecard {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr)
 }
