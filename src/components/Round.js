@@ -24,15 +24,22 @@ class Round extends React.Component {
     }
 
     handleClickPrev = () => {
+        if (this.state.holeIndex === 0) {
+            return
+        }
+
         this.setState({
             holeIndex: this.state.holeIndex - 1
         })
     }
 
     handleClickNext = () => {
-            this.setState({
-                holeIndex: this.state.holeIndex + 1
-            })
+        if (this.state.holeIndex > 16) {
+            return
+        }
+        this.setState({
+            holeIndex: this.state.holeIndex + 1
+        })
     }
 
     render() {
@@ -41,6 +48,7 @@ class Round extends React.Component {
         return (
             <div className="round">
                 <ShotCounter 
+                    currentHole={holeIndex + 1}
                     value={scores[holeIndex]}
                     onChange={this.handleChange}
                     onClickPrev={this.handleClickPrev}
