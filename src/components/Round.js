@@ -20,6 +20,9 @@ class Round extends React.Component {
         if (isAdd) {
             scores[holeIndex] = currentScore + 1
         } else {
+            if (currentScore < 1) {
+                return
+            }
             scores[holeIndex] = currentScore - 1
         }
         
@@ -28,24 +31,25 @@ class Round extends React.Component {
         })   
     }
 
-    handleClickPrev = () => {
-        if (this.state.holeIndex === 0) {
-            return
+    handleClickPagination = (e) => {
+        let { holeIndex } = this.state
+        let direction = e.target.textContent
+
+        if (direction === 'prev') {
+            if (holeIndex === 0) {
+                return
+            }
+            this.setState({
+                holeIndex: this.state.holeIndex - 1
+            })
+        } else {
+            if (holeIndex > 16) {
+                return
+            }
+            this.setState({
+                holeIndex: this.state.holeIndex + 1
+            })
         }
-
-        this.setState({
-            holeIndex: this.state.holeIndex - 1
-        })
-    }
-
-    handleClickNext = () => {
-        if (this.state.holeIndex > 16) {
-            return
-        }
-
-        this.setState({
-            holeIndex: this.state.holeIndex + 1
-        })
     }
 
     render() {
@@ -53,13 +57,11 @@ class Round extends React.Component {
 
         return (
             <div className="round">
-                {/* <Counter /> */}
                 <ShotCounter 
                     currentHole={holeIndex + 1}
                     value={scores[holeIndex]}
-                    onClick={this.handleClickScoring}
-                    onClickPrev={this.handleClickPrev}
-                    onClickNext={this.handleClickNext}
+                    onClickScoring={this.handleClickScoring}
+                    onClickPagination={this.handleClickPagination}
                     />
                 <Scorecard scores={scores} />
             </div>

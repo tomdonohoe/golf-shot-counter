@@ -1,27 +1,22 @@
 import React from 'react';
+import Counter from './Counter.js'
 
-const ShotCounter = ({currentHole, value, onClick, onClickAdd, onClickSubtract, onClickPrev, onClickNext}) => {
+const ShotCounter = ({currentHole, value, onClickScoring, onClickPagination}) => {
 
     return (
         <div className="shotcounter">
 
             <h2>Shot Counter</h2>
-
             <h3>Hole {currentHole} Score</h3>
 
-            <div className="counter">
-                <button onClick={onClick}>-</button>
-                <p className="score">{value}</p>
-                {/* <input type="number" value={value} onChange={(e) => onChange(e)}/> */}
-                <button onClick={onClick}>+</button>
-            </div>
+            <Counter onClick={onClickScoring} value={value} />
 
             <div className="holenav">
-                <button onClick={onClickPrev}>
-                    <i className="arrow left"></i> prev
+                <button onClick={onClickPagination}>
+                    prev
                 </button>
-                <button onClick={onClickNext}>
-                    next <i className="arrow right"></i>
+                <button onClick={onClickPagination}>
+                    next
                 </button>
             </div>
         </div>
